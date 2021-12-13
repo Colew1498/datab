@@ -102,7 +102,6 @@ const Profilescreen = ({ route, navigation }) => {
   const [bio, setBio] = useState("");
   const [newbio, setNewbio] = useState("");
   const [pic, setPic] = useState(noPic);
-  const [url, setUrl] = useState("");
 
   var name = route.params.input;
   var first = name.toString().slice(0,-1);
@@ -120,8 +119,7 @@ const fetchImage = async () => {
   let result = fire.storage().ref(('/images/' + name + "/" + image.name));
   const url = await result.getDownloadURL();
   setPic(url);
-  setImage("");
-  setUrl(url);
+  setImage(url);
 };
 
 React.useEffect(() => {
